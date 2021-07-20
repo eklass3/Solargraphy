@@ -1,9 +1,17 @@
-from crontab import CronTab
+from time import sleep
 
-cron = CronTab()
+from picamera import PiCamera
 
-job = cron.new(command='python /home/pi/Merger/IntensityDetector.py')
+camera = PiCamera()
 
-job.minute.every(2)
+camera.start_preview()
 
-cron.write()
+camera.shutter_speed = 1000 #
+sleep(0.1)
+camera.capture('/home/pi/Solargraphy/assets/low.jpg')
+
+camera.shutter_speed = 80000 #
+sleep(0.1)
+camera.capture('/home/pi/Solargraphy/assets/high.jpg')
+
+camera.stop_preview()
