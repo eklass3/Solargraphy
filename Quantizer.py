@@ -1,12 +1,14 @@
 import json, time, numpy
 from PIL import Image
 
-imageData = json.loads(open("data/imageData.json").read())
+imageData = json.loads(open("/home/pi/Solargraphy/data/imageData.json").read())
 
 def quantize(arr):
-    max = numpy.amax(arr)
+    m = numpy.amax(arr)
 
-    arr8 = (arr * (255 / max)).astype('uint8')
+    coe = numpy.true_divide(255, m)
+    print(coe)
+    arr8 = (arr * coe).astype('uint8')
 
     return arr8
 
@@ -23,4 +25,4 @@ rgb = numpy.dstack((arrR8, arrG8, arrB8))
 
 finalImg = Image.fromarray(rgb)
 
-finalImg.save("assets/greyScale.png")
+finalImg.save("/home/pi/Solargraphy/assets/greyScale.png")

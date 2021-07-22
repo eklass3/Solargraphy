@@ -8,7 +8,7 @@ from time import sleep
 start_time = time.time()
 
 contributionData = json.loads(open("/home/pi/Solargraphy/data/contributionData.json").read())
-imageData = json.loads(open("data/imageData.json").read())
+imageData = json.loads(open("/home/pi/Solargraphy/data/imageData.json").read())
 #  Detects the light intensity of each pixel in the bracketed image.
 dim = contributionData["dim"]
 bright = contributionData["bright"]
@@ -37,6 +37,7 @@ camera = PiCamera()
 
 camera.start_preview()
 
+#camera.iso = 10
 camera.shutter_speed = 1000 #
 sleep(0.1)
 camera.capture('/home/pi/Solargraphy/assets/low.jpg')
@@ -72,7 +73,7 @@ imageData["r"] = arrRed.tolist()#*0
 imageData["g"] = arrGreen.tolist()#*0
 imageData["b"] = arrBlue.tolist()#*0
 
-imageDataW = open("data/imageData.json", "w+")
+imageDataW = open("/home/pi/Solargraphy/data/imageData.json", "w+")
 imageDataW.write(json.dumps(imageData))
 imageDataW.close()
 
