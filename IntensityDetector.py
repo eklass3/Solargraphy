@@ -37,12 +37,12 @@ camera = PiCamera()
 
 camera.start_preview()
 
-#camera.iso = 10
-camera.shutter_speed = 1000 #
+camera.iso = 10
+camera.shutter_speed = 10 #
 sleep(0.1)
 camera.capture('/home/pi/Solargraphy/assets/low.jpg')
 
-camera.shutter_speed = 80000 #
+camera.shutter_speed = 1000 #
 sleep(0.1)
 camera.capture('/home/pi/Solargraphy/assets/high.jpg')
 

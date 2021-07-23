@@ -25,4 +25,4 @@ rgb = numpy.dstack((arrR8, arrG8, arrB8))
 
 finalImg = Image.fromarray(rgb)
 
-finalImg.save("/home/pi/Solargraphy/assets/greyScale.png")
+finalImg.save("/home/pi/Solargraphy/assets/final.png")
