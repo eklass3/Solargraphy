@@ -6,12 +6,12 @@ camera = PiCamera()
 
 camera.start_preview()
 
-#camera.iso = 10
-camera.shutter_speed = 2000 #
+camera.iso = 10 #800 Night
+camera.shutter_speed = 100 # 20000 Night
 sleep(0.1)
 camera.capture('/home/pi/Solargraphy/assets/low.jpg')
 
-camera.shutter_speed = 90000 #
+camera.shutter_speed = 1000 # 200000 Night
 sleep(0.1)
 camera.capture('/home/pi/Solargraphy/assets/high.jpg')
 

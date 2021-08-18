@@ -38,7 +38,7 @@ camera = PiCamera()
 camera.start_preview()
 
 camera.iso = 10
-camera.shutter_speed = 10 #
+camera.shutter_speed = 100 #
 sleep(0.1)
 camera.capture('/home/pi/Solargraphy/assets/low.jpg')
 

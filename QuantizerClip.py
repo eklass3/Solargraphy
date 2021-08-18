@@ -4,13 +4,13 @@ from PIL import Image
 imageData = json.loads(open("/home/pi/Solargraphy/data/imageData.json").read())
 
 def quantize(arr):
-    max = numpy.amax(arr)
-    print(max)
+    m = numpy.amax(arr)
+    print(m)
     print(numpy.mean(arr))
 
-    cutPoint = max / 2
+    cutPoint = m / 2
     arr = numpy.clip(arr, 0, cutPoint)
-    arr = (arr * (255 / cutPoint))
+    arr = (arr * numpy.true_divide(255, cutPoint))
     arr8 = arr.astype('uint8')
 
     return arr8
